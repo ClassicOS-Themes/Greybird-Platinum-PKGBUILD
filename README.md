@@ -2,6 +2,14 @@
 
 A PKGBUILD for fellow Arch users to install the "Greybird-Platinum" theme.
 
+## Build Dependencies
+
+- `sassc`
+- `meson`
+- `librsvg`
+
+Install with `sudo pacman -S sassc meson librsvg`
+
 ## Instructions
 
 1. Clone the git repository
