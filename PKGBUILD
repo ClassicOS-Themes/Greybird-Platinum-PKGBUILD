@@ -1,5 +1,6 @@
 pkgname=greybird-platinum-git
-pkgver=3.22.13+20
+pkgver=3.23.2_platinum_git_e827e98
+
 pkgrel=1
 pkgdesc="Greybird with a retro Platinum twist"
 arch=('any')
@@ -15,8 +16,7 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "Greybird-Platinum"
-#  echo $(git describe --always --abbrev=0).r$(git rev-list --count master) | sed 's|-|.|g' | sed 's|v||g'
-	echo "$(git describe --long | sed -r 's/-([0-9,a-g,A-G]{7}.*)//' | sed 's/-/+/' | sed 's/v//g' )"
+	echo "3.23.2_platinum_git_$(git rev-parse --short HEAD)"
 }
 
 build() {
