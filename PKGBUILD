@@ -1,5 +1,5 @@
 pkgname=greybird-platinum-git
-pkgver=3.23.2_platinum_git_e827e98
+pkgver=3.23.3_platinum_git_d3dfb6c
 
 pkgrel=1
 pkgdesc="Greybird with a retro Platinum twist"
@@ -16,7 +16,7 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "Greybird-Platinum"
-	echo "3.23.2_platinum_git_$(git rev-parse --short HEAD)"
+	echo "3.23.3_platinum_git_$(git rev-parse --short HEAD)"
 }
 
 build() {
