@@ -1,7 +1,9 @@
-pkgname=greybird-platinum-git
-pkgver=3.23.3_platinum_git_d3dfb6c
-
-pkgrel=1
+# Maintainer: tomatoes <tomatoes@tin-can.mozmail.com> 
+_pkgbase=greybird-platinum 
+_pkgbv=3.23.3
+pkgname=$_pkgbase-git
+pkgver=3.23.3.r0.0
+pkgrel=2
 pkgdesc="Greybird with a retro Platinum twist"
 arch=('any')
 url="https://github.com/ClassicOS-Themes/Greybird-Platinum"
@@ -16,15 +18,20 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "Greybird-Platinum"
-	echo "3.23.3_platinum_git_$(git rev-parse --short HEAD)"
+  printf "$_pkgbv.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  arch-meson "Greybird-Platinum" build
+  meson setup \
+	  --prefix        /usr \
+	  --libexecdir    lib \
+	  --sbindir       bin \
+	  --buildtype     plain \
+	  --auto-features enabled \
+	  "Greybird-Platinum" build
   meson compile -C build
 }
 
 package() {
   meson install -C build --destdir "$pkgdir"
-
 }
